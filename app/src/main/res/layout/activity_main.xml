@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:paddingTop="0dp">
+<!--
+    <TextView
+        android:id="@+id/tvHasCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF0000"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:layout_marginBottom="5dp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/tvHasCameraApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF0000"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:text="-" />
+-->
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/crioclinicapps"
+        android:layout_marginBottom="5dp"
+        android:layout_width="267dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="presents"
+        android:id="@+id/pres"
+        android:textColor="#ffff288c"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Selfie Skin"
+        android:id="@+id/name"
+        android:textColor="#ffff288c"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/ivThumbnailPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/launcher"
+        android:paddingTop="25dp"
+        android:paddingBottom="15dp" />
+
+    <EditText
+        android:id="@+id/EditTextEmail"
+        android:layout_height="wrap_content"
+        android:hint="@string/feedbackemail"
+        android:inputType="textEmailAddress"
+        android:layout_width="fill_parent">
+    </EditText>
+
+    <Button
+        android:id="@+id/btnTakePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Take a Picture" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/messageText"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="#ffff288c"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
