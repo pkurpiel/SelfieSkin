@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
@@ -79,7 +80,7 @@ public class MainActivity extends Activity implements OnClickListener {
         btnTackPic = (Button) findViewById(R.id.btnTakePic);
         ivThumbnailPhoto = (ImageView) findViewById(R.id.ivThumbnailPhoto);
         editTextEmail = (EditText) findViewById(R.id.EditTextEmail);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         try{
             String name = UserEmailFetcher.getEmail(this).toString();
