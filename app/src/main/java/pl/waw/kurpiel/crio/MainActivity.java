@@ -56,6 +56,15 @@ public class MainActivity extends Activity implements OnClickListener {
     ProgressDialog progress = null;
 
     @Override
+    public void onPause() {
+        super.onPause();
+
+        if ((progress != null) && progress.isShowing())
+            progress.dismiss();
+        progress = null;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -209,7 +218,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
         if (!sourceFile.isFile()) {
 
-            progress.dismiss();
+            if ((progress != null) && progress.isShowing()) {
+                progress.dismiss();
+            }
+
 
             Log.e("uploadFile", "Source File not exist :"
                     +path);
@@ -317,7 +329,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
             } catch (MalformedURLException ex) {
 
-                progress.dismiss();
+                if ((progress != null) && progress.isShowing()) {
+                    progress.dismiss();
+                }
+
                 ex.printStackTrace();
 
                 runOnUiThread(new Runnable() {
@@ -331,7 +346,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
             } catch (Exception e) {
 
-                progress.dismiss();
+                if ((progress != null) && progress.isShowing()) {
+                    progress.dismiss();
+                }
+
                 e.printStackTrace();
 
                 runOnUiThread(new Runnable() {
@@ -344,7 +362,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 Log.e("Upload file to server", "Exception : "
                         + e.getMessage(), e);
             }
+            if ((progress != null) && progress.isShowing()) {
                 progress.dismiss();
+            }
+
             return serverResponseCode;
 
         } // End else block
