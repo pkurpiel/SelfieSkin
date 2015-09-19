@@ -1,5 +1,7 @@
 package pl.waw.kurpiel.crio;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Application;
 import android.app.ProgressDialog;
@@ -81,16 +83,17 @@ public class MainActivity extends Activity implements OnClickListener {
         ivThumbnailPhoto = (ImageView) findViewById(R.id.ivThumbnailPhoto);
         editTextEmail = (EditText) findViewById(R.id.EditTextEmail);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        try{
-            String name = UserEmailFetcher.getEmail(this).toString();
-            editTextEmail.setText(name, TextView.BufferType.EDITABLE);
+        AccountManager manager = AccountManager.get(this);
+        Account[] accounts = manager.getAccountsByType("com.google");
+        final boolean connected = accounts != null && accounts.length > 0;
+        if (connected) {
+            try {
+                String name = UserEmailFetcher.getEmail(this).toString();
+                editTextEmail.setText(name, TextView.BufferType.EDITABLE);
+            } catch (VerifyError e) { // Happens if the AccountManager is not available (e.g. 1.x)
+                //
+            }
         }
-        catch (VerifyError e)
-        { // Happens if the AccountManager is not available (e.g. 1.x)
-            //
-        }
-
 /*
         // Does your device have a camera?
         if(hasCamera()){
